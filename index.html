@@ -1,20 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>dub16</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="index.css">
-	<script type="text/javascript" href="js.js"></script>
+  <title>dub16</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <script type="text/javascript" href="js.js"></script>
 </head>
 <body>
-<form action="login.php">
-	Notandanafn:<br>
-  	<input type="text" name="User">
-  	<br>
-  	Lykilorð:<br>
-  	<input type="text" name="Password">	
-  	<br>
-  	<input type="submit" value="Submit" text="Innskráning">
+<form action="login.php" method="POST">
+<div class=""/>
+  
+   <label>Nafn:</label><input type="text" name="user">
+   <br>
+    <label>Lykilorð:</label><input type="text" name="password"> 
+    
+    <input type="submit" name="sublogin" value="Innskraning">
+    </div>
+
+    <div class=""/>
+  <label>Kennitala:</label><input type="text" name="kt"> 
+  <br>
+   <label>Nafn:</label><input type="text" name="user">
+   <br>
+    <label>Lykilorð:</label><input type="text" name="password"> 
+    <br>
+    <label>netfang:</label><input type="text" name="email"> 
+    <br>
+    <label>Sími</label><input type="text" name="simi"> 
+  
+    <input type="submit" name="subnyskra" value="Nýskráning">
+    </div>
+
+  </div>  
 </form>
 </body>
 </html>
