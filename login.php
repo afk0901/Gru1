@@ -14,8 +14,6 @@ $nafn = $_POST['user'];
 $pass = $_POST['password'];
 $email = $_POST['email'];
 $simi = $_POST['simi'];
-//Hashar lykilorðið með sha1 algorithmanum 
-$pass = sha1($pass);
 
 //FYRIR LOGIN
 if (isset($_POST['sublogin'])) {
@@ -27,7 +25,7 @@ if (isset($_POST['sublogin'])) {
    if (strlen($login_pass)) {
    	
    
-if ($notandi_pass[0] == sha1($login_pass) && $notandi_pass[0] != null) {
+if ($notandi_pass[0] == hash("sha512",$login_pass) && $notandi_pass[0] != null) {
 	//Hér kemur allt sen kemur eftir að notandi loggar sig inn.
   echo "Halló, ". $login_kt;
 
