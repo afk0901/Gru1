@@ -31,7 +31,7 @@ if (strlen($_POST['password']) > 7) {
 
 
 //Ef að kennitalan er ekki til í grunninum þá setjum við hana inn í grunninn
-         if ($notandi_kt[0] == null) {
+         if ($notandi_kt[0] == null && isset($_POST['subnyskra'])) {
 
       //Set upplýsingar um notanda inn í töfluna user
 	//Nota prepare svo að við setjum ekki gildin inn strax.
@@ -60,6 +60,7 @@ else{//Ef hún er til kemur villa
 else{
 	echo "Lykilorð verður að vera a.m.k 8 stafir!";
 }
+
 
 }
 

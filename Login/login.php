@@ -9,11 +9,15 @@
 include_once "dbconnection.php";
 include_once "update_database.php";
 
-$kt = $_POST['kt'];
+if (isset($_POST['subnyskra'])) {
+  $kt = $_POST['kt'];
 $nafn = $_POST['user'];
 $pass = $_POST['password'];
 $email = $_POST['email'];
 $simi = $_POST['simi'];
+
+}
+
 
 //FYRIR LOGIN
 if (isset($_POST['sublogin'])) {
