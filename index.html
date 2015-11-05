@@ -1,20 +1,86 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>dub16</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="index.css">
-	<script type="text/javascript" href="js.js"></script>
-</head>
-<body>
-<form action="login.php">
-	Notandanafn:<br>
-  	<input type="text" name="User">
-  	<br>
-  	Lykilorð:<br>
-  	<input type="text" name="Password">	
-  	<br>
-  	<input type="submit" value="Submit" text="Innskráning">
-</form>
+	<head>
+		<title>dub16</title>
+		<link rel="stylesheet" type="text/css" href="script.js">
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<meta charset="UTF-8";>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  		
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"> <a href="brblogo.png"></a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Aðal</a></li>
+        <li><a href="nýskráning.html">Nýskráning</a></li>
+        <li><a href="#">Atburðir</a></li>
+        <li><a href="#">...</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+ 
+	<div class="row">
+		<div class="col-sm-6">
+	     	<form role="form" >
+			  <h1>Nýskráning</h1>
+			  <div class="form-group">
+			    <label for="nafn">Nafn</label>
+			    <input type="nafn" name="email" class="form-control" id="nafn">
+			  </div>
+			  <div class="form-group">
+			    <label for="pw">password</label>
+			    <input type="password" name="password" class="form-control" id="pwd">
+			  </div>
+			  <div class="form-group">
+			    <label for="email">email</label>
+			    <input type="email" name="nafn" class="form-control" id="email">
+			  </div>
+			  <div class="form-group">
+			    <label for="simi">Símanúmer</label>
+			    <input type="simi" name="simi" class="form-control" id="simi">
+			  </div>
+			  <div class="checkbox">
+			  </div>
+			  <button type="submit" class="btn btn-default">Submit</button>
+			</form>
+	    </div>
+
+	    <div class="col-sm-6">
+	      	<form role="form" action="login.php" method="post">
+			  <h1>Innskráning</h1>
+			  <div class="form-group">
+			    <label for="email">email</label>
+			    <input type="email" name="login_email" class="form-control" id="email">
+			  </div>
+			  <div class="form-group">
+			    <label for="pw">password</label>
+			    <input type="password" name="login_pass" class="form-control" id="pwd">
+			  </div>
+			  <div class="checkbox">
+			  </div>
+			  <button type="submit" class="btn btn-default">Submit</button>
+			</form>
+	    </div>
+	    	    
+	  </div>
+	  <br>
+	
+
+  
+    <div class="clearfix visible-lg"></div>
+  </div>
+</div>
+
 </body>
 </html>

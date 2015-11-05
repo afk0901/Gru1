@@ -9,15 +9,16 @@
 include_once "dbconnection.php";
 include_once "update_database.php";
 
-$nafn = $_POST['nafn'];
-$password = $_POST['password'];
+$kt = $_POST['kt'];
+$nafn = $_POST['user'];
+$pass = $_POST['password'];
 $email = $_POST['email'];
 $simi = $_POST['simi'];
 
 //FYRIR LOGIN
 if (isset($_POST['sublogin'])) {
 
-   $login_email = $_POST['login_email'];
+   $login_kt = $_POST['login_kt'];
    $login_pass = $_POST['login_password'];
 
 	//Bara að checka hvort að ég get staðfest að lykilorðið sé rétt
