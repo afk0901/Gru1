@@ -26,6 +26,7 @@ if (isset($_POST['sublogin'])) {
    	
    
 if ($notandi_pass[0] == hash("sha512",$login_pass) && $notandi_pass[0] != null) {
+  include_once "update_database.php";
 	//Hér kemur allt sen kemur eftir að notandi loggar sig inn.
   echo "Halló, ". $login_kt;
 
