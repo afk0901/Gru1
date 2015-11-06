@@ -34,8 +34,7 @@ if ($notandi_pass[0] == hash("sha512",$login_pass) && $notandi_pass[0] != null) 
 	//Hér kemur allt sen kemur eftir að notandi loggar sig inn.
   echo "Halló, ". $login_kt;
 
-echo '<form class="pure-form-stacked" action="login.php" method="POST">
-    <h1>Mínir Viðburðir</h1>';
+    echo '<h1>Mínir Viðburðir</h1>';
     //Pælingin hér er að láta lítið box birtast fyrir hvern atburð
 
     foreach ($nafn_atburdar as $heiti_atburdar) {
@@ -47,8 +46,7 @@ echo '<form class="pure-form-stacked" action="login.php" method="POST">
 
      
    
-   echo '</div>
-</form>';
+   echo '</div>';
 
 }
 

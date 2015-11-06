@@ -8,8 +8,40 @@ $pass = hash("Sha512",($_POST['password']));
 $email = $_POST['email'];
 $simi = $_POST['simi'];
 
-//FYRIR SIGN-UP FORM
 if (isset($_POST['subnyskra'])) {//Ef ýtt er á Nýskrá þá er allt kennitala, nafn, lykilorð, tölvupóstur og sími sett í post arrayið.
+
+//Checka á hvort að það sé rétt fyllt inn.
+if (empty($kt) || !isset($kt)){
+  echo "Kennitölu vantar!";
+  exit;
+}
+
+else if (strlen($kt) !== 10) {
+  echo "Ógild kennitala!";
+  exit;
+}
+
+else if (empty($nafn) || !isset($nafn)) {
+  echo "Nafn vantar!";
+  exit;
+  }
+
+else if(strlen($_POST['password']) < 8){
+  
+  echo "Lykilorð verður að vera a.m.k 8 stafir!";
+  exit;
+}
+
+else if (empty($email)){
+  echo "Netfang vantar!";
+} 
+
+else if (empty($simi)) {
+    echo "Símanúmer vantar!";
+} 
+
+ 
+if (!empty($kt) && !empty($nafn) && !empty($pass) && !empty($email) && !empty($simi)) {
 
 try {
 	//Byrja á því að gá hvort að kennitalan sé til í grunninum.
@@ -27,11 +59,11 @@ catch (Exception $e) {
 	echo "Ekki tókst að skrá í grunninn!".$e;
 }
 
+
 if (strlen($_POST['password']) > 7) {
 
-
 //Ef að kennitalan er ekki til í grunninum þá setjum við hana inn í grunninn
-         if ($notandi_kt[0] == null && isset($_POST['subnyskra'])) {
+         if (!isset($notandi_kt[0])) {
 
       //Set upplýsingar um notanda inn í töfluna user
 	//Nota prepare svo að við setjum ekki gildin inn strax.
@@ -49,20 +81,18 @@ if (strlen($_POST['password']) > 7) {
 	$result->execute();
 	echo "Þú hefur nýskráð þig!";
 }
+}
 
+if (isset($notandi_kt[0])) {
 
-else{//Ef hún er til kemur villa
     echo "Þessi kennitala er þegar til. Reyndu aftur";
+    exit;
  }
 
 }
 
-else{
-	echo "Lykilorð verður að vera a.m.k 8 stafir!";
 }
 
-
-}
 
 if (isset($_POST['sublogin'])) {
     
@@ -82,13 +112,10 @@ if (isset($_POST['sublogin'])) {
 catch (Exception $e) {
 	echo "Ekki tókst að skrá í grunninn!".$e;
 }
-
-}
          
           try {
     	$kt_login = $_POST['login_kt'];
 	//Næ í hashstrengin úr grunninum
-    	//if (isset($kt_login)) {
     //Vel atburðina sem notandi er skráður á.
          $sql_select_atburdir = "SELECT nafn_atburdar, atburdir.timi, atburdir.dagsetning
  FROM atburdir join bokanir_atburdur on atburdir.id_atburdir
@@ -104,11 +131,11 @@ where bokanir_atburdur.user_id = '$kt_login'";
             }
 
 
-        //}
+        
     }
 
 catch (Exception $e) {
 	echo "Ekki tókst að skrá í grunninn!".$e;
 }
-    	
+   } 	
 ?>
