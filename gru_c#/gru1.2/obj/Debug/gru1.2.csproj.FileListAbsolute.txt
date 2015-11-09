@@ -1,0 +1,31 @@
+\\skra\nem-redirect$\2004972609\documents\visual studio 2013\Projects\gru1.2\gru1.2\bin\Debug\gru1.2.exe.config
+\\skra\nem-redirect$\2004972609\documents\visual studio 2013\Projects\gru1.2\gru1.2\bin\Debug\gru1.2.exe
+\\skra\nem-redirect$\2004972609\documents\visual studio 2013\Projects\gru1.2\gru1.2\bin\Debug\gru1.2.pdb
+\\skra\nem-redirect$\2004972609\documents\visual studio 2013\Projects\gru1.2\gru1.2\obj\Debug\gru1.2.csprojResolveAssemblyReference.cache
+\\skra\nem-redirect$\2004972609\documents\visual studio 2013\Projects\gru1.2\gru1.2\obj\Debug\gru1._2.brbumsjon.resources
+\\skra\nem-redirect$\2004972609\documents\visual studio 2013\Projects\gru1.2\gru1.2\obj\Debug\gru1._2.Form1.resources
+\\skra\nem-redirect$\2004972609\documents\visual studio 2013\Projects\gru1.2\gru1.2\obj\Debug\gru1._2.Properties.Resources.resources
+\\skra\nem-redirect$\2004972609\documents\visual studio 2013\Projects\gru1.2\gru1.2\obj\Debug\gru1.2.csproj.GenerateResource.Cache
+\\skra\nem-redirect$\2004972609\documents\visual studio 2013\Projects\gru1.2\gru1.2\obj\Debug\gru1.2.exe
+\\skra\nem-redirect$\2004972609\documents\visual studio 2013\Projects\gru1.2\gru1.2\obj\Debug\gru1.2.pdb
+\\skra\nem-redirect$\2004972609\Documents\Visual Studio 2013\Projects\gru1.2\gru1.2\bin\Debug\MySql.Data.dll
+C:\Users\Heima\Desktop\gru1.2\gru1.2\bin\Debug\gru1.2.exe.config
+C:\Users\Heima\Desktop\gru1.2\gru1.2\obj\Debug\gru1.2.exe
+C:\Users\Heima\Desktop\gru1.2\gru1.2\obj\Debug\gru1.2.pdb
+C:\Users\Heima\Desktop\gru1.2\gru1.2\bin\Debug\gru1.2.exe
+C:\Users\Heima\Desktop\gru1.2\gru1.2\bin\Debug\gru1.2.pdb
+C:\Users\Heima\Desktop\gru1.2\gru1.2\obj\Debug\gru1.2.csprojResolveAssemblyReference.cache
+C:\Users\Heima\Desktop\gru1.2\gru1.2\obj\Debug\gru1._2.brbumsjon.resources
+C:\Users\Heima\Desktop\gru1.2\gru1.2\obj\Debug\gru1._2.Form1.resources
+C:\Users\Heima\Desktop\gru1.2\gru1.2\obj\Debug\gru1._2.Properties.Resources.resources
+C:\Users\Heima\Desktop\gru1.2\gru1.2\obj\Debug\gru1.2.csproj.GenerateResource.Cache
+C:\Users\Heima\Desktop\gru1.2\gru_c#\gru1.2\bin\Debug\gru1.2.exe.config
+C:\Users\Heima\Desktop\gru1.2\gru_c#\gru1.2\obj\Debug\gru1.2.exe
+C:\Users\Heima\Desktop\gru1.2\gru_c#\gru1.2\obj\Debug\gru1.2.pdb
+C:\Users\Heima\Desktop\gru1.2\gru_c#\gru1.2\bin\Debug\gru1.2.exe
+C:\Users\Heima\Desktop\gru1.2\gru_c#\gru1.2\bin\Debug\gru1.2.pdb
+C:\Users\Heima\Desktop\gru1.2\gru_c#\gru1.2\obj\Debug\gru1.2.csprojResolveAssemblyReference.cache
+C:\Users\Heima\Desktop\gru1.2\gru_c#\gru1.2\obj\Debug\gru1._2.brbumsjon.resources
+C:\Users\Heima\Desktop\gru1.2\gru_c#\gru1.2\obj\Debug\gru1._2.Form1.resources
+C:\Users\Heima\Desktop\gru1.2\gru_c#\gru1.2\obj\Debug\gru1._2.Properties.Resources.resources
+C:\Users\Heima\Desktop\gru1.2\gru_c#\gru1.2\obj\Debug\gru1.2.csproj.GenerateResource.Cache
