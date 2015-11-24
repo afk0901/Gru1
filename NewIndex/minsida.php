@@ -106,7 +106,8 @@ setcookie('select', $array_nafn_og_selected_json);
 
 ?>
 </select>
-<button type="submit" name="subskravidburd" value="Nýskráning" class="btn btn-default">Skrá mig á þennann viðburð</button>
+<button type="submit" name="subskravidburd"  class="btn btn-default">Skrá mig á þennann viðburð</button>
+<button type="submit" name="subafskravidburd"  class="btn btn-default">Afskrá mig af viðburð</button>
 </form>
  </div>
 

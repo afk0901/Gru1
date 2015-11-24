@@ -1,6 +1,48 @@
 
 <?php
  session_start();
+
+
+/*HÉR ER SETT FENGIÐ NAFNIÐ Á ATBURÐINUM*/
+    $atburdur_place_i_array = 0;
+       
+       $Valinn_atburdur = $_POST['event_selected'];
+      $selected = $_COOKIE['select'];
+      $selected_decode = json_decode($selected);
+
+
+     $nafn_atburðar = $selected_decode[1][$atburdur_place_i_array];
+           
+      $sql_selected_atburdur_id = "SELECT id_atburdir from atburdir where nafn_atburdar = '$nafn_atburðar'";
+      $sql_atburdur_id = $connection->query($sql_selected_atburdur_id);
+
+      while ($row = $sql_atburdur_id->fetch()) {
+                $id[] = $row['id_atburdir'];
+            }
+        $id_to_use = $id[0];
+        $kt_to_use = $_SESSION["user_kt"];
+
+    
+       //Finna út númer hvað $valinn_atburdur er í listanum - Lúppa í gegnum array 1 þar til að array 1 index er $Valinn atburdur þá sjá hversu oft var lúppað.
+       //Velja úr array 2 það sem oft var lúppað.
+      //Lúppa í gegnum fyrri array $nafn_og_selected, stoppa þar sem $Valinn_atburdur er. Annars hækkar teljari um einn
+$correct_selected = count($selected_decode) +1;//Atburðurinn fór alltaf einum meira eða tveimur meira á ákveðnum atburðum svo þetta fixar það.
+
+    for ($i=0; $i <= $correct_selected; $i++) { 
+
+         
+          if ($selected_decode[0][$i] == $Valinn_atburdur) {
+              break;
+          }
+          else{
+             $atburdur_place_i_array++; 
+
+          }
+             
+      }
+
+
+
 //Þessi skrá heldur utan um allar tengingar við gagnagrunn.
 if (isset($_POST['subnyskra'])) {//Ef ýtt er á Nýskrá þá er allt kennitala, nafn, lykilorð, tölvupóstur og sími sett í post arrayið.
 
@@ -97,6 +139,7 @@ if (isset($notandi_kt[0])) {
 if (isset($_POST['sublogin']) || $_SESSION['pass_user_session'] 
   == hash("sha512",$_SESSION["login_password"])) {
     
+
     if (isset($_POST['logoff'])) {
        $_SESSION["login_password"] = null;
        header('Location: http://127.0.0.1:81/Gru1/NewIndex/');
@@ -133,7 +176,7 @@ catch (Exception $e) {
 
 	//Næ í hashstrengin úr grunninum
     //Vel atburðina sem notandi er skráður á.
-         $sql_select_atburdir = "SELECT nafn_atburdar, atburdir.timi, atburdir.dagsetning
+         $sql_select_atburdir = "SELECT bokanir_atburdur.id_atburdir as bokad_id, nafn_atburdar, atburdir.timi, atburdir.dagsetning
  FROM atburdir join bokanir_atburdur on atburdir.id_atburdir
 = bokanir_atburdur.id_atburdir join user on user.user_id = bokanir_atburdur.user_id
 where bokanir_atburdur.user_id = '$kt_login'";
@@ -141,12 +184,14 @@ where bokanir_atburdur.user_id = '$kt_login'";
  		$sql_atburdir = $connection->query($sql_select_atburdir);
          
           while ($row = $sql_atburdir->fetch()) {
+                $bokanir_atburdur_id[] = $row['bokad_id'];
                 $nafn_atburdar[] = $row['nafn_atburdar'];
                 $timi[] = $row['timi'];
                 $dagsetning[] = $row['dagsetning'];
             }
-  
-    }
+     
+     }
+     
 
 catch (Exception $e) {
 	echo "Ekki tókst að skrá í grunninn!".$e;
@@ -172,48 +217,31 @@ catch (PDOException $e) {
 
    }
 
+
    if (isset($_POST['subskravidburd'])) {
+    $takk = "Takk fyrir að skrá þig á viðburð hjá okkur! ";
     include_once "../Login/dbconnection.php";
     include_once  "minsida.php";
-
-     $atburdur_place_i_array = 0;
-       
-       $Valinn_atburdur = $_POST['event_selected'];
-      $selected = $_COOKIE['select'];
-      $selected_decode = json_decode($selected);
-     
-       //Finna út númer hvað $valinn_atburdur er í listanum - Lúppa í gegnum array 1 þar til að array 1 index er $Valinn atburdur þá sjá hversu oft var lúppað.
-       //Velja úr array 2 það sem oft var lúppað.
-      //Lúppa í gegnum fyrri array $nafn_og_selected, stoppa þar sem $Valinn_atburdur er. Annars hækkar teljari um einn
-$correct_selected = count($selected_decode) +1;//Atburðurinn fór alltaf einum meira eða tveimur meira á ákveðnum atburðum svo þetta fixar það.
-
-    for ($i=0; $i <= $correct_selected; $i++) { 
-
-         
-          if ($selected_decode[0][$i] == $Valinn_atburdur) {
-              break;
-          }
-          else{
-             $atburdur_place_i_array++; 
-
-          }
-             
-      }
-       
-       
-     
-     try {
-      $nafn_atburðar = $selected_decode[1][$atburdur_place_i_array];
+ 
            
-      $sql_selected_atburdur_id = "SELECT id_atburdir from atburdir where nafn_atburdar = '$nafn_atburðar'";
-      $sql_atburdur_id = $connection->query($sql_selected_atburdur_id);
+     try {
+    
+//Vel alla atburði sem notandi er bókaður á til að checka hvort notandi er skráður á atburð
+$sql_selected_booked_id = "SELECT id_atburdir from bokanir_atburdur where user_id = '$kt_to_use'";
+      $sql_atburdur_booked_id = $connection->query($sql_selected_booked_id);
 
-      while ($row = $sql_atburdur_id->fetch()) {
-                $id[] = $row['id_atburdir'];
+      while ($row = $sql_atburdur_booked_id->fetch()) {
+                $id_booked[] = $row['id_atburdir'];
             }
-        $id_to_use = $id[0];
+//Lúppa í gegnum bókaðra id og gái fyrir hvert id hvort að það sé það sama og idið sem notandinn valdi.
+            foreach ($id_booked as $id) {
 
-        $kt_to_use = $_SESSION["user_kt"];
+            if ($id_to_use == $id) {
+            $takk = "Þú ert nú þegar skráð/ur á þennan atburð!";
+            echo $takk;
+            exit;
+            }
+        }
 
       $sql_insert_id = "INSERT INTO bokanir_atburdur(id_atburdir, user_id) 
       VALUES('$id_to_use','$kt_to_use');";
@@ -238,12 +266,27 @@ $correct_selected = count($selected_decode) +1;//Atburðurinn fór alltaf einum 
             }
       }
 
-      catch (Exception $e) {
-        
+      catch (PDOException $e) {
+        echo "Villa kom upp! Sjá: ".$e;
       }
 
-
    }
+
+
+    if (isset($_POST['subafskravidburd'])) {
+
+   try {
+    
+         
+     $sql_delete_event = "DELETE FROM bokanir_atburdur where user_id = '$kt_to_use' AND id_atburdir = '$id_to_use'";
+     $sql_delete = $connection->exec($sql_delete_event);
+
+   } 
+
+    catch (PDOException $e) {
+     echo "Villa! Sjá ".$e;
+   }
+}
 
    	
 ?>
