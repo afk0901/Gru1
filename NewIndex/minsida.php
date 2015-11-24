@@ -76,6 +76,7 @@ include_once "../Login/update_database.php";
        ?>
 
 <select name ="event_selected">
+  
 <option>Veldu viðburð</option>
 <?php 
 include_once "../Login/dbconnection.php";
@@ -89,8 +90,6 @@ include_once "../Login/update_database.php";
 
 //Lúppa í gegnum allar færslurnar og skrifa út nafnið á taburðinum, tíma og dagsetningu.
 //count() fallið er notað til að telja allar færslurnar. Síðan er echoað út <option> html taggið
-
-//$nafn_ekki_booked = count($nafn_ekki_booked) + 1;
 
 for ($i=0; $i < count($nafn_ekki_booked); $i++) { 
     echo '<option>'.$nafn_ekki_booked[$i].' klukkan '.$timi_ekki_booked[$i].' þann '.$dagsetning_ekki_booked[$i].'</option>';
